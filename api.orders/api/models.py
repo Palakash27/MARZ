@@ -46,14 +46,14 @@ class EnumField(Field):
             )
         self.enum = enum
         super().__init__(*args, **kwargs)
-    
+
     def db_value(self, value):
         if value not in self.enum:
             raise ValueError(
                 f"{self.__class__.__name__} Value not member of enum {value} {list(self.enum)}"
             )
         return value
-    
+
     def python_value(self, value):
         return value
 
@@ -65,7 +65,7 @@ class Customer(BaseModel):
     CustomerID = IntegerField(primary_key=True)
     CustomerFirstName = CharField(100, null=False)
     CustomerLastName = CharField(100, null=False)
-    
+
     class Meta:
         table_name = 'Customer'
 
@@ -74,7 +74,7 @@ class Product(BaseModel):
     ProductName = CharField(100, null=False)
     ProductPhotoURL = CharField(255, null=False)
     ProductStatus = EnumField(PRODUCT_STATUSES_SET, null=False)
-    
+
     class Meta:
         table_name = 'Product'
 
@@ -83,6 +83,6 @@ class Orders(BaseModel):
     OrderStatus = EnumField(ORDER_STATUSES_SET, null=False)
     ProductID = ForeignKeyField(Product, field='ProductID', null=False, column_name='ProductID')
     CustomerID = ForeignKeyField(Customer, field='CustomerID', null=False, column_name='CustomerID')
-    
+
     class Meta:
         table_name = 'Orders'
