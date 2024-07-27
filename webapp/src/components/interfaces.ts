@@ -1,4 +1,4 @@
-import type { DraggableProvided } from 'react-beautiful-dnd';
+import type { DraggableProvided } from "react-beautiful-dnd";
 
 export interface Order {
     OrderID: number;
@@ -8,12 +8,19 @@ export interface Order {
 }
 
 export interface OrderData {
-  Queued: Order[],
-  InProgress: Order[],
-  QA: Order[],
+    Queued: Order[];
+    InProgress: Order[];
+    QA: Order[];
 }
 
-export interface DraggableItemProps extends Order{
+export interface Product {
+    ProductID: number;
+    ProductName: string;
+    ProductPhotoURL: string;
+    ProductStatus: "Active" | "Inactive";
+}
+
+export interface DraggableItemProps extends Order {
     draggableProvided: DraggableProvided;
     removeOrder: (order: Order) => void;
 }
@@ -23,7 +30,7 @@ export interface DraggableListProps {
     listTitle: string;
     removeOrder: (order: Order) => void;
     items: Order[];
-};
+}
 
 export interface HeaderLink {
     label: string;

@@ -28,5 +28,5 @@ app.use((err, req, res, next) => {
 
 const PORT = 5002;
 app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`);
+    console.log(`Products API listening at http://localhost:${PORT}`);
 });
