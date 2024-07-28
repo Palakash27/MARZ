@@ -1,6 +1,5 @@
 const mariadb = require("mariadb");
 
-// Create a pool of connections
 const pool = mariadb.createPool({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,

@@ -1,4 +1,3 @@
-// webapp/src/pages/ApiHelper.ts
 import axios from "axios";
 import { Order, OrderData, Product } from "../components/interfaces";
 
