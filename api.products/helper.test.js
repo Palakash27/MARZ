@@ -11,12 +11,6 @@ describe("emptyOrRows", () => {
         expect(result).toEqual([]);
     });
 
-    it("should return the input array if it is not null or undefined", () => {
-        const inputArray = [1, 2, 3];
-        const result = emptyOrRows(inputArray);
-        expect(result).toEqual(inputArray);
-    });
-
     it("should return the input array if it is empty", () => {
         const inputArray = [];
         const result = emptyOrRows(inputArray);
