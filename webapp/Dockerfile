@@ -5,7 +5,7 @@ FROM node:17-alpine3.12
 WORKDIR /webapp
 
 # add `/app/node_modules/.bin` to $PATH
-ENV PATH /webapp/node_modules/.bin:$PATH
+ENV PATH=/webapp/node_modules/.bin:$PATH
 
 # add app
 COPY . ./
