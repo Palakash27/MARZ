@@ -25,7 +25,7 @@ const query = async (sql, params) => {
         console.error("Database query error:", err.message);
         throw err;
     } finally {
-        if (connection) connection.release(); // Ensure connection is released back to the pool
+        if (connection) connection.release();
     }
 };
 
