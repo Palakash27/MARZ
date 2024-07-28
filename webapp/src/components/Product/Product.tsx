@@ -8,7 +8,7 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ id, name, imageUrl }) => {
     return (
-        <div className="border p-4 rounded shadow-sm bg-white">
+        <div className="border p-4 rounded shadow-sm bg-white w-80">
             <div className="relative">
                 <img
                     src={imageUrl}

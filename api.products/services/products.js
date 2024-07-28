@@ -25,6 +25,24 @@ const fetchActiveProducts = async () => {
     };
 };
 
+const fetchAllProducts = async () => {
+    let data = [];
+    let message = "";
+
+    try {
+        const rows = await db.query(`SELECT * FROM Product`);
+        data = helper.emptyOrRows(rows);
+    } catch (err) {
+        message = "Error fetching all products";
+    }
+
+    return {
+        data,
+        message,
+    };
+};
+
 module.exports = {
     fetchActiveProducts,
+    fetchAllProducts,
 };
