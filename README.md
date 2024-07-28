@@ -74,11 +74,19 @@ NOTE: Storybook is configured to run locally
 
 ## Testing
 
-Both webapp and api.orders have tests written, webapp uses jest and api.orders uses pytest.
+Webapp, api.products and api.orders have tests written, api.products and webapp both uses jest and api.orders uses pytest.
 
 ### Testing webapp
 
 To run the jest tests run the following command at the root of the `webapp` directory
+
+```Bash
+npm run test
+```
+
+### Testing api.products
+
+To run the jest tests run the following command at the root of the `api.products` directory
 
 ```Bash
 npm run test
