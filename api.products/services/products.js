@@ -12,7 +12,8 @@ const fetchActiveProducts = async () => {
 
     try {
         const rows = await db.query(
-            `SELECT * FROM Product WHERE ProductStatus = 'Active'`
+            `SELECT * FROM Product WHERE ProductStatus = ?`,
+            ["active"]
         );
         data = helper.emptyOrRows(rows);
     } catch (err) {
@@ -24,6 +25,12 @@ const fetchActiveProducts = async () => {
         message,
     };
 };
+
+/**
+ * Fetches all products from the database.
+ *
+ * @returns {Promise<Object>} - An object containing the data array and message.
+ */
 
 const fetchAllProducts = async () => {
     let data = [];

@@ -1,6 +1,8 @@
-FROM node:17
+FROM node:17-alpine3.12
 
 WORKDIR /api.products
+
+ENV NODE_ENV=development
 
 COPY package.json ./
 COPY package-lock.json ./

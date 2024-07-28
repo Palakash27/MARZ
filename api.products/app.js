@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 const productsRouter = require("./routes/products");
-require("dotenv").config();
+
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
 
 app.use(express.json());
 
@@ -26,7 +29,7 @@ app.use((err, req, res, next) => {
     return;
 });
 
-const PORT = 5002;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
-    console.log(`Products API listening at http://localhost:${PORT}`);
+    console.log(`Products API running on port ${PORT}`);
 });
