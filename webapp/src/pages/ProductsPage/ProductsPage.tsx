@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Product from "../../components/Product/Product";
 import Spinner from "../../components/Spinner/Spinner";
 import PageWrapper from "../PageWrapper";
@@ -15,16 +15,16 @@ const ProductsPage: React.FC = () => {
     const [loadingState, setLoadingState] = useState(DATA_STATES.waiting);
     const [products, setProducts] = useState<ProductType[]>([]);
 
-    const fetchProducts = async () => {
+    const fetchProducts = useCallback(async () => {
         setLoadingState(DATA_STATES.waiting);
         const { products, errorOccured } = await getProductsData();
         setProducts(products);
         setLoadingState(errorOccured ? DATA_STATES.error : DATA_STATES.loaded);
-    };
+    }, []);
 
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [fetchProducts]);
 
     let content;
     if (loadingState === DATA_STATES.waiting) {

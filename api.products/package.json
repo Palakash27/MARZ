@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node app.js",
         "dev": "nodemon app.js",
-        "test": "jest --coverage"
+        "test": "jest --coverage --silent"
     },
     "dependencies": {
         "express": "^4.19.2",

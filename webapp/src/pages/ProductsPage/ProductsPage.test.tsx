@@ -7,7 +7,7 @@ import { MemoryRouter } from "react-router-dom";
 import ProductsPage from "./ProductsPage";
 
 describe("ProductsPage", () => {
-    it("shouldDisplayLoadingSpinner", () => {
+    it("should display loading dpinner", () => {
         render(
             <MemoryRouter>
                 <ProductsPage />
@@ -17,7 +17,7 @@ describe("ProductsPage", () => {
             screen.getByTestId(`loading-spinner-container`)
         ).toBeInTheDocument();
     });
-    it("shouldDisplayProductsContainer", async () => {
+    it("should display products container", async () => {
         const response = {
             data: [
                 {
@@ -52,7 +52,7 @@ describe("ProductsPage", () => {
         });
         server.close();
     });
-    it("shouldDisplayErrorMessage", async () => {
+    it("should display error message", async () => {
         const response = {
             data: [],
             message: "Error",
